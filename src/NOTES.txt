@@ -1,0 +1,34 @@
+TODO
+
+1. Przekazać callback do Edit tak zeby kazda zmiana powowdowała zmienę w setRefresh, ktora spowoduje ponowne wywołanie useEffect
+
+2. Usunąć paski z boku na landing page
+
+3. Co zrobić z tym LoanDetails, bo logiki tam mało, a mnóstwo htmla, który cięko jest rozbić na mniejsze komponenty. 
+
+4. Details zmienić, bo wygląda jak syf. Zarówno kafelek jak i samo wyskakujące okno
+
+5. Jak zmienić kolejność kafelek przy szer 1000px ? Chcę Delete loan i ten drugi przenieść w puste miejsce ponad chart
+
+6. Dodać do details funkcję edytowania 
+
+7. Dlaczego nie działa refresh ?
+
+______
+
+
+8. ShowDetails text nakłada się jak jest go za document
+9. Mozna wejść spokojnie w kredyt innej osoby
+10. BRAK REFRESHA !
+
+11. Tanstack na razie tylko w loanDetails
+
+12. Walidacja eby nie mona było zejść na minus z kredytem.
+
+13. Jeeli uytkownik spłaci kredyt - jakas syfiasta animacja + "ofijalne" zamknięcie kredytu i usunięcie
+
+
+
+
+
+1. Przerzucić logikę ftechowania i modyfikacji dla kadego komponentu

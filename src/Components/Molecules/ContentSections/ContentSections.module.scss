@@ -1,0 +1,375 @@
+@import "../../../StylesUtilities/utilities";
+
+//      FIRST mixins
+
+@mixin firstSection {
+    font-family: $montserrat;
+    margin-top: 20px;
+    position: relative;
+    width: 98%;
+    min-height: 750px;
+    overflow: hidden;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+    .firstGraphQuest {
+        width: 60%;
+        @include flexCenter;
+
+        position: relative;
+        text-align: justify;
+
+        .graphics {
+            position: absolute;
+            right: 0;
+            top: -10%;
+            background-image: url("https://www.sibs.org.uk/wp-content/uploads/2022/02/Question-mark-png.png");
+            width: 200px;
+            height: 200px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            opacity: 10%;
+        }
+    
+        .questions {
+            width: 80%;
+            min-width: 400px;
+            margin-left: 70px;
+            font-size: 24px;
+            font-weight: 100;
+        }
+    }
+
+}
+
+
+
+
+//      end of FIRST mixins 
+
+//  PROS sections mixins
+
+@mixin contentSection {
+    position: relative;
+    width: 100%;
+    min-height: 250px;
+    overflow: hidden;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+
+
+    .text {
+        width: 50%;
+        padding: 20px;
+        
+        .greetings {
+            font-size: 36px;
+            font-weight: 300;
+            margin-left: 20px;
+        }
+    
+        .description {
+            width: 100%;
+            margin-left: 20px;
+            font-weight: 300;
+        }
+    }
+}
+
+@mixin contentSectionL {
+    @include contentSection;
+    justify-content: flex-start;
+
+    .imgNormalSize {
+        @include imageContentRight;
+    }
+
+    .imgMinSize {
+        @include imageContentRightMin;
+    }
+}
+
+@mixin contentSectionR {
+    @include contentSection;
+    justify-content: flex-end;
+
+    .imgNormalSize {
+        @include imageContentLeft;
+    }
+
+    .imgMinSize {
+        @include imageContentLeftMin;
+    }
+}
+
+@mixin contentShape {
+    position: absolute;
+    top: -20%;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 50%;
+}
+
+@mixin contentShapeRight {
+    @include contentShape;
+    right: -40%;
+}
+
+@mixin contentShapeLeft {
+    @include contentShape();
+    left: -40%;
+}
+
+@mixin imageContent {
+    position: absolute;
+    top: 0;
+
+    width: 300px;
+    filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.499));
+}
+
+@mixin imageContentMin {
+    @include imageContent;
+    width: 200px;
+}
+
+@mixin imageContentRight {
+    @include imageContent;
+    right: 50px;
+}
+
+@mixin imageContentRightMin {
+    @include imageContentMin;
+    right: 50px;
+    top: 40px;
+}
+
+@mixin imageContentLeft {
+    @include imageContent;
+    left: 50px;
+}
+
+@mixin imageContentLeftMin {
+    @include imageContentMin;
+    left: 50px;
+    top: 40px;
+}
+// end of PROS section mixins
+
+
+//      FIRST 
+
+.first {
+    @include firstSection;
+    // margin-top: 200px;
+}
+
+.important {
+    font-weight: 300;
+}
+
+.conclusion {
+    font-weight: 100;
+    font-size: 36px;
+
+    span {
+        position: relative;
+    }
+
+    span::before {
+        width: 100%;
+        height: 15px;
+        position: absolute;
+        bottom: -2px;
+        left: 0px;
+        background-color: rgba(255, 0, 0, 0.165);
+        content: '';
+    }
+}
+
+//      End of FIRST
+
+
+//      PROS
+
+.sectL {
+    margin-top: 25px;
+    @include contentSectionL;
+
+    .shape {
+        @include contentShapeRight;
+    }
+}
+
+.sectR {
+    margin-top: 25px;
+    @include contentSectionR;
+
+    .shape {
+        @include contentShapeLeft;
+    }
+}
+
+// end of PROS
+
+//      SCIENCE
+
+.science {
+    margin: 0px 40px;
+    width: 50%;
+    font-family: $montserrat;
+    text-align: justify;
+    min-height: 750px;
+    position: relative;
+
+    .textScience {
+        font-size: 18px;
+        font-weight: 300;
+
+        .didyou {
+            font-size: 36px;
+        }
+    }
+
+    .bulb {
+        background-image: url("https://www.iconpacks.net/icons/2/free-bulb-icon-3658-thumb.png");
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: -10%;
+        left: -200px;
+        background-size: 100%;
+        opacity: 10%;
+    }
+}
+
+
+//      end of SCIENCE
+
+
+
+//      ADVANTAGES
+
+.tileField {
+    width: 100%;
+    height: 310px;
+    border-radius: 12px;
+    
+    margin: 0px 0px 400px 0px;
+    display: flex;
+    justify-content: flex-start;
+
+
+.tile {
+    margin-left: 5%;
+    margin-right: 5%;
+    box-sizing: border-box;
+    min-width: 90%;
+    border-radius: 12px;
+    height: 300px;
+    padding: 30px;
+    @include flexSpaceB;
+
+    transition: 300ms;
+    opacity: 1;
+
+
+    .advImg {
+        width: 10%;
+    }
+
+    .textField {
+        width: 80%;
+        font-family: $montserrat;
+
+        .advDesc {
+            font-size: 36px;
+            font-weight: 300;
+        }
+
+        .text {
+            font-weight: 300;
+            font-size: 18px;
+        }
+    }
+}
+}
+
+
+//      MANAGE 
+
+.manageStatusContainer {
+    width: 100%;
+    height: 100%;
+
+    padding: 40px;
+    @include flexCenter;
+    gap: 10%;
+    font-family: $montserrat;
+
+
+    .manageTextField {
+        width: 50%;
+    }
+
+    .manageJoin {
+        font-size: 40px;
+        font-weight: 300;
+    }
+
+    .manageAnd {
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    .links {
+        width: 30%;
+        margin-right: 40px;
+        @include flexCenter;
+        flex-direction: column;
+        gap: 40px;
+
+        a,
+        a:link,
+        a:active,
+        a:visited {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+        
+        .loginBtn,
+        .registerBtn {
+            width: 100%;
+            height: 60px;
+            border: none;
+
+            font-size: 20px;
+            font-family: $montserrat;
+            font-weight: 300;
+
+            background-color: rgb(255, 175, 175);
+            border-radius: 12px;
+            box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.283);
+            color: rgb(0, 0, 0);
+            transition: 150ms;
+
+            @include flexSpaceE;
+
+            &:hover {
+                transform: translate(-15px, -15px);
+                box-shadow: 18px 18px 15px 3px rgba(0, 0, 0, 0.168);
+            }
+        }
+    }
+    
+}
+
+
+//      end of MANAGE

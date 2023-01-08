@@ -1,0 +1,59 @@
+@import "../../../StylesUtilities/utilities.scss";
+
+.footer {
+    box-sizing: border-box;
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(43, 43, 43);
+    color: $light-main;
+    padding: 40px 10px;
+    font-family: $montserrat;
+
+    @include flexCenter;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.textContent {
+    width: 50%;
+    @include flexCenter;
+    flex-direction: column;
+    gap: 2px;
+    text-align: center;
+}
+
+.author {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.desc {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.socials {
+    width: 300px;
+    @include flexCenter;
+    gap: 20px;
+    
+    a,
+    a:visited,
+    a:link {
+        color: $light-main;
+        font-size: 42px;
+        transition: 250ms;
+    }
+
+    .linkedin:hover {
+        color: rgb(81, 81, 255);
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 10px rgba(81, 81, 255, 0.666));
+    }
+
+    .github:hover {
+        color: black;
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 10px rgb(255, 255, 255));
+    }
+}

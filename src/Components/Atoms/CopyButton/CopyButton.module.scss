@@ -1,0 +1,16 @@
+.copy {
+    font-size: 20px;
+    color: rgb(149, 149, 149);
+    border: none;
+    background-color: transparent;
+    transition: 150ms;
+    cursor: pointer;
+    
+    &:hover {
+        color: black;
+    }
+
+    &:active {
+        transform: scale(.8);
+    }
+}

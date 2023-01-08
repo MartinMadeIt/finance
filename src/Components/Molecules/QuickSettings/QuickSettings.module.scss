@@ -1,0 +1,51 @@
+.handleDark,
+.handleLight {
+    box-sizing: border-box;
+    width: fit-content;
+    min-width: 40px;
+    height: 40px;
+    padding: 0px 10px;
+
+    border-radius: 50px;
+
+    background-color: transparent;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 15px;
+
+    cursor: pointer;
+
+    .showhide {
+        border: none;
+        font-size: inherit;
+        color: inherit;
+        background-color: transparent;
+        cursor: pointer;
+
+
+    }
+}
+
+.handleLight {
+    background-color: rgba(0, 0, 0, 0.153);
+
+    .showhide:hover {
+        color: rgb(0, 0, 255);
+    }
+}
+
+.handleDark {
+    border: 1px solid grey;
+
+    .showhide:hover {
+        color: rgb(255, 242, 0);
+    }
+}

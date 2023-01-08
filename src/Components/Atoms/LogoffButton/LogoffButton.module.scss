@@ -1,0 +1,11 @@
+@import "../../../StylesUtilities/utilities.scss";
+
+.button {
+    @include unpressedNavbar;
+    cursor: pointer;
+
+    &:hover {
+        color: red;
+        @include pressedNavbar;
+    }
+}

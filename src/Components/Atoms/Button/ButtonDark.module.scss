@@ -1,0 +1,45 @@
+@import "../../../StylesUtilities/utilities.scss";
+
+
+.danger,
+.wrong,
+.info,
+.success {
+    width: 120px;
+    height: 60px;
+    font-family: $montserrat;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+        transform: scale(.96);
+
+    }
+}
+
+.danger {
+    border: 2px solid $danger-dark;
+    background-color: transparent;
+    color: white;
+}
+
+.wrong {
+    border: 2px solid $error-dark;
+    background-color: transparent;
+    color: white;
+}
+
+.info {
+    border: 2px solid $info-dark;
+    background-color: transparent;
+    color: white;
+}
+
+.success {
+    border: 2px solid $succes-dark;
+    background-color: transparent;
+    color: white;
+}

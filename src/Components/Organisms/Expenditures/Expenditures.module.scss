@@ -1,0 +1,161 @@
+@import "../../../StylesUtilities/utilities.scss";
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $light-main;
+    width: 100vw;
+    min-height: 100vh;
+
+    @include flexSpaceE;
+    flex-direction: column;
+    gap: 10px;
+
+    .manage,
+    .expenditures {
+        width: 100vw;
+        border-radius: 20px;
+        box-shadow: 5px 5px 20px 0px #00000049;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .expenditures {
+        min-height: 100vh;
+        height: 100vh;
+    }
+
+    .manage {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+        @include flexSpaceE;
+        backdrop-filter: blur(20px);
+
+        .form {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            border-radius: 16px;
+
+            background-color: #fff;
+            box-shadow: 3px 3px 16px 2px rgba(0, 0, 0, 0.442);
+            @include flexSpaceE;
+
+
+            .close {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+
+                border: none;
+                background-color: transparent;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            input {
+                width: 120px;
+                height: 40px;
+                border-radius: 14px;
+                border: 1px solid grey;
+                padding: 5px;
+                cursor: pointer;
+            }
+
+            .check {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: transparent;
+                border: none;
+                font-size: 22px;
+                background-image: linear-gradient(to top right, rgba(0, 177, 183, 0.5), rgba(0, 0, 196, 0.5));
+                color: white;
+                cursor: pointer;
+
+                &:hover {
+                    background-image: linear-gradient(to top right, rgba(0, 210, 217, 0.753), rgba(0, 0, 196, 0.703));
+                }
+
+                &:active {
+                    transform: scale(.97);
+                }
+            }
+
+        }
+    }
+
+    .manageButton {
+        position: absolute;
+        right: 30px;
+        bottom: 120px;
+
+        height: 60px;
+        width: 60px;
+        border: none;
+        border-radius: 50%;
+        @include flexCenter;
+        background-color: rgba(0, 169, 191, 0.491);
+        color: $light-main;
+        font-size: 24px;
+        font-family: $raleway;
+        font-weight: 500;
+        box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.283);
+        cursor: pointer;
+        transition: 150ms;
+        border: none;
+
+        &:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 8px 8px 15px 3px rgba(0, 0, 0, 0.168);
+            background-color: rgb(0, 194, 220);
+
+        }
+    }
+
+    .add {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        @include flexCenter;
+        background-color: rgba(73, 191, 0, 0.491);
+        color: $light-main;
+        font-size: 30px;
+        font-family: $raleway;
+        font-weight: 500;
+        box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.283);
+        cursor: pointer;
+        transition: 150ms;
+        border: none;
+
+        &:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 8px 8px 15px 3px rgba(0, 0, 0, 0.168);
+            background-color: rgb(69, 180, 1);
+
+        }
+
+    }
+
+    .expenditures {
+        table {
+            width: 80%;
+
+            thead {
+                height: 50px;
+            }
+        }
+        
+    }
+
+}
