@@ -35,18 +35,18 @@
 
 .signin {
     position: absolute;
-    bottom: -100px;
+    top: -80px;
     left: 20px;
-    font-size: 120px;
+    font-size: clamp(50px, 20vw, 100px);
     color: rgba(255, 68, 0, 0.51);
     font-family: $nunito;
     font-weight: 700;
+    z-index: 30;
 }
 
 .card {
-    width: 30%;
-    min-width: 300px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.417);
     border: 1px solid rgba(255, 98, 0, 0.217);
     border-radius: 12px;
@@ -86,5 +86,14 @@
         &:hover {
             background-color: rgba(255, 0, 0, 0.548);
         }
+    }
+}
+
+
+@media screen and (min-width: 500px) {
+    .card {
+        width: 30%;
+        min-width: 300px;
+        height: 500px;
     }
 }

@@ -7,10 +7,10 @@ interface getLoanType {
     parameter : string
 }
 
-export const useGetLoan = ({loanIndex}:{loanIndex:string}) => {
-    return useQuery(['loan', loanIndex], () => fetchLoanDetails<LoanStatusType>({id:Number(loanIndex)}))
+// export const useGetLoan = ({loanIndex}:{loanIndex:string}) => {
+//     return useQuery(['loan', loanIndex], () => fetchLoanDetails<LoanStatusType>({id:Number(loanIndex)}))
 
-}
+// }
 
 export const useGetLoanParameter = ({parameter, id}:getLoanType) => {
     return useQuery([parameter], () => fetchLoanParameter<string|number>({parameter:'name', id:id}))

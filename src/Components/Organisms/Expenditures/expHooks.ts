@@ -12,7 +12,7 @@ export const useGetExpenditures = ({userId, startDate, endDate}:FetchExpDatasTyp
  
     const {data:expenditures, isError:errorExp} = useQuery({
       queryKey: ['expenditures', userId, startDate, endDate], 
-      queryFn: () => getCategoriesAmountByDate<NameTotalType>({userId: userId, dateStart: startDate, dateEnd: endDate}), 
+      queryFn: async () => await getCategoriesAmountByDate<NameTotalType>({userId: userId, dateStart: startDate, dateEnd: endDate}), 
       enabled: !!userId})
   
     return {expenditures, errorExp}

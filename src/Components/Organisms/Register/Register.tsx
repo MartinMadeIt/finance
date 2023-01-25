@@ -1,15 +1,11 @@
 import { useFormik } from "formik"
-import Button from "../../Atoms/Button/Button"
 import {Input, SearchInput } from "../../Atoms/Input/Input"
-import { ContainerColumn } from "../../UtilityComponents/Container/Container"
 import styles from "./Register.module.scss"
 import * as yup from 'yup'
-import QuickSettings from "../../Molecules/QuickSettings/QuickSettings"
 import { createUser } from "../../../Controllers/createUser"
 import { InferType } from "yup"
 import { useEffect, useState } from "react"
 import { getListOf } from "../../../Controllers/filterBy"
-import { Autocomplete, TextField } from "@mui/material"
 import { motion } from "framer-motion"
 
 export interface Register {

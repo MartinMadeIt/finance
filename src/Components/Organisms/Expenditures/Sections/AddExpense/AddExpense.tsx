@@ -1,12 +1,11 @@
 import styles from "./AddExpense.module.scss"
 import * as yup from "yup"
 import { useFormik } from "formik"
-import { CreateSpendingInterface, insertSpending } from "../../../../../Controllers/databaseActions"
+import {  insertSpending } from "../../../../../Controllers/databaseActions"
 import { SearchInput, Input} from "../../../../Atoms/Input/Input"
 import { CategoriesType } from "../../../../../Utilities/types"
 import { GrFormClose } from "react-icons/gr";
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { showNotification } from "../../../../../Helpers/addNotification"
 
 
 const expenditureValidation = yup.object({
@@ -20,9 +19,41 @@ type AddExpenseType = {
     closeCallback: () => void
 }
 
+
+
+type SpendingType = {
+    amount : number,
+    userId: string, 
+    categoryName: string,
+    catNames: string[]
+}
+
+// export const useCreateSpending = ({amount, userId, categoryName, catNames}:spendingType) => {
+//     const client = useQueryClient()
+
+//     return useMutation({
+//         mutationFn: () => {
+//            return insertSpending({amount, userId, categoryName, catNames})
+//         },
+//         onSuccess: () => {
+//             client.invalidateQueries({queryKey: ['loan']})
+//         }
+//     })
+// }
+
 function AddExpense({categories, userId, closeCallback}:AddExpenseType) {
 
     const catNames:string[] = categories ? categories.map(element => element.name as string) : ['']
+    const client = useQueryClient()
+        
+    // const {mutate, isSuccess} = useMutation((data:spendingType) => insertSpending({...data}))
+    
+    const spend = useMutation({
+        mutationFn: ({...data}:SpendingType) => insertSpending({...data}),
+        onSuccess: () => {
+            client.invalidateQueries(['expenditures',userId])
+        }
+    })
 
     const expenditureForm = useFormik({
       initialValues: {
@@ -30,12 +61,15 @@ function AddExpense({categories, userId, closeCallback}:AddExpenseType) {
         category: ""
       },
       onSubmit: (values, {resetForm}) => {
-        insertSpending({amount: values.amount, userId:String(userId), categoryName:values.category, catNames:catNames})
+        spend.mutate({amount: values.amount, userId:String(userId), categoryName:values.category, catNames:catNames})
+        // insertSpending({amount: values.amount, userId:String(userId), categoryName:values.category, catNames:catNames})
         resetForm()
       },
       validationSchema: expenditureValidation
     })
-  
+
+    
+
 
     return (
         <div className={styles.container}>

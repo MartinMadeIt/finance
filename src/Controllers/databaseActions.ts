@@ -47,12 +47,13 @@ export async function fetchLoanDatas<T>({id}:{id:string}) {
 }
 
 //          Fecth loan datas based on loan_id
-export async function fetchLoanDetails<T>({id}:{id:number}) { 
+export async function fetchLoanDetails<T>({id, userId}:{id:number, userId:string}) { 
 
         let { data: loanStatus, error } = await supabase
         .from('loanStatus')
         .select('*')
         .eq('loan_id', id)
+        .eq('owner', userId)
         .single()
 
         return loanStatus as T

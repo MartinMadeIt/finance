@@ -11,10 +11,10 @@ export const useUser = () => {
     return {user}
 }
 
-export const useLoanDetails = ({loanId}:{loanId:number}) => {
-    const {data:loanDatas} = useQuery(['loan', loanId], () => fetchLoanDetails<LoanStatusType>({id:Number(loanId)}))
-    return {loanDatas}
-}
+// export const useLoanDetails = ({loanId}:{loanId:number}) => {
+//     const {data:loanDatas} = useQuery(['loan', loanId], () => fetchLoanDetails<LoanStatusType>({id:Number(loanId)}))
+//     return {loanDatas}
+// }
 
 export const useHistory = ({loanId}:{loanId:number}) => {
     const {data:history} = useQuery(['historyFull'], () => getHistory({loanId: loanId}))

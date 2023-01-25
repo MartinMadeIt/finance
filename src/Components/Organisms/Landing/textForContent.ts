@@ -21,7 +21,7 @@ export const TEXT_CONTENT = {
     questionArray: [
         "Did I pay loan installment this month ?",
         "How much credit do I have left?",
-        "How much money do I spent for ... this month ? ",
+        "How much money did I spent for ... this month ? ",
         "Can I spent less monthly ?"
     ],
     scienceArray : [

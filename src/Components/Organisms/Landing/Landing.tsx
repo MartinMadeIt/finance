@@ -2,13 +2,13 @@ import { useScroll, motion, useSpring } from "framer-motion"
 import { useEffect } from "react"
 import { getUSER } from "../../../Controllers/loginManage"
 import { logIn, logOut } from "../../../Redux/authSlice"
-import { useAppSelector, useAppDispatch } from "../../../Redux/hooks"
+import { useAppDispatch } from "../../../Redux/hooks"
 import { ContentFirstSection, ContentScience, ContentSectionL, ContentSectionR, ManageUserStatus } from "../../Molecules/ContentSections/ContentSections"
 import Footer from "../../Molecules/Footer/Footer"
 import Navbar from "../../Molecules/Navbar/Navbar"
 import styles from "./Landing.module.scss"
 import { TEXT_CONTENT } from "./textForContent"
-import { ThemeState } from "../../../Redux/themeSlice"
+import ToTop from "../../Atoms/ToTop/ToTop"
 
 
 function Landing() {
@@ -31,22 +31,23 @@ function Landing() {
   return (
     <div className={styles.container}>
         <Navbar />
+        <ToTop />
         <motion.div 
             style={{ scaleX }} 
             className={styles.progress}
         />
         <div className={styles.content}>
 
-            <section className={styles.questions} id="questionsSect">
+            <section className={styles.content__questions} id="questionsSect">
                 <ContentFirstSection questionArray={TEXT_CONTENT.questionArray} />
             </section>
 
-            <section className={styles.science} id="scienceSect">
+            <section className={styles.content__science} id="scienceSect">
                 <ContentScience factsArray={TEXT_CONTENT.scienceArray} />
             </section>
 
 
-            <section className={styles.pros} id='prosSect'>
+            <section className={styles.content__pros} id='prosSect'>
                 <ContentSectionL 
                     text={TEXT_CONTENT.charts.title} 
                     description={TEXT_CONTENT.charts.text}
@@ -71,7 +72,7 @@ function Landing() {
                 />
             </section>
 
-            <section className={styles.join} id="joinSect">
+            <section className={styles.content__join} id="joinSect">
                 <ManageUserStatus />
             </section>
                 

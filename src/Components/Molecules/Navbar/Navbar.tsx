@@ -1,5 +1,4 @@
 import styles from "./Navbar.module.scss"
-import { HiMenuAlt3 } from "react-icons/hi";
 import { AiOutlineHome, AiOutlineSmallDash } from "react-icons/ai";
 import { CgFramer } from "react-icons/cg";
 import { RiArrowGoBackLine } from "react-icons/ri";
@@ -7,25 +6,40 @@ import LogoffButton from "../../Atoms/LogoffButton/LogoffButton";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../../Redux/hooks";
 
 
 export default function Navbar() {
+
+  const [open, setIsOpen] = useState(false)
+
+  const handleToggle = () => setIsOpen(!open)
+
   return (
-    <div className={styles.container}>
-        <div className={styles.logoField}>
-            <div className={styles.logo} />
-            <div className={styles.companyName}>Martin Made IT</div>
+    <>
+    <div className={styles.navbar}>
+        <div className={styles.logo}>
+            <div className={styles.logo__image} />
+            <div className={styles.logo__text}>Martin Made IT</div>
         </div>
-        <div className={styles.hamburger}><HiMenuAlt3 /></div>
+        <button className={styles.toggle} onClick={handleToggle}>
+          <div className={styles.toggle__line} />
+          <div className={styles.toggle__line} />
+          <div className={styles.toggle__line} />
+        </button>
     </div>
+    <div className={open ? styles.menu : styles.menu__hidden}>
+        <a href="#questionsSect">Questions for you</a>
+        <a href="#scienceSect">Science behind money</a>
+        <a href="#prosSect">Pros for using App</a>
+        <a href="#joinSect">Join us</a>
+    </div>
+    </>
   )
 }
 
 export const NavbarLogged = () => {
 
   const [open, setOpen] = useState(false)
-  const [percent, setPercent] = useState(0)
   const [enableAnimations, setEnableAnimations] = useState(true)
 
   const navigate = useNavigate()

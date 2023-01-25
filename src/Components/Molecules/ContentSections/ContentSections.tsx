@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 export const ContentFirstSection = ({questionArray}:{questionArray:string[]}) => {
     return (
         <div className={styles.first}>
-            <div className={styles.firstGraphQuest}>
-                <div className={styles.graphics} />
-                <div className={styles.questions}>
-                    {questionArray.map((quest, index) => <p key={index}>{quest}</p>)}
+            <div className={styles.content}>
+                <div className={styles.content__image} />
+                <div className={styles.content__questions}>
+                    {questionArray.map((quest, index) => <p key={index} className={styles.question}>{quest}</p>)}
                     <p className={styles.important}>Where my money goes ?!</p>
                 </div> 
             </div>
@@ -28,17 +28,17 @@ export const ContentScience = ({factsArray}:{factsArray:string[]}) => {
     return (
         <div className={styles.science} ref={componentScience}>
             <motion.div 
-                className={styles.bulb} 
+                className={styles.science__bulb} 
                 style={{
                     transformOrigin: "bottom",
                     transform: isInView ? "rotate(-45deg)" : "none",
                     transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 1s"
                 }}
                 />
-            <div className={styles.textScience}>
-                <p className={styles.didyou}>Did you know ? </p>
+            <div className={styles.scienceText}>
+                <h3 className={styles.scienceText__header}>Did you know ? </h3>
                 {factsArray.map((element, index) => {
-                    return <p key={index}>{element}</p>
+                    return <p key={index} className={styles.scienceText__fact}>{element}</p>
                 })}
             </div>
         </div>
@@ -72,15 +72,15 @@ export const ContentSectionL = ({text, description, imageUrl, min=false, color='
             style={{
                 transform: isInView ? "none" : "translateX(-200px)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s, opacity 0ms ease-in 0ms"
               }}
             >
-            <div className={styles.text}>
-                <p className={styles.greetings}>{text}</p>
-                <p className={styles.description}> {description} </p>
+            <div className={styles.proText}>
+                <h3 className={styles.proText__header}>{text}</h3>
+                <p className={styles.proText__description}> {description} </p>
             </div>
             <div className={styles.shape} style={shapeColor}/>
-            <img src={imageUrl}  className={min ? styles.imgMinSize : styles.imgNormalSize}/>
+            <img src={imageUrl}  className={styles.proImage}/>
         </motion.div>
     )
 }
@@ -101,17 +101,17 @@ export const ContentSectionR = ({text, description, imageUrl, min=false, color='
             style={{
                 transform: isInView ? "none" : "translateX(200px)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s, opacity 0ms ease-in 0ms"
             }}
         >
-            <div className={styles.text}>
-                <p className={styles.greetings}>{text}</p>
-                <p className={styles.description}>
+            <div className={styles.proText}>
+                <h3 className={styles.proText__header}>{text}</h3>
+                <p className={styles.proText__description}>
                     {description}
                 </p>
             </div>
             <div className={styles.shape} style={shapeColor} />
-            <img src={imageUrl}  className={min ? styles.imgMinSize : styles.imgNormalSize}/>
+            <img src={imageUrl}  className={styles.proImage}/>
 
         </motion.div>
 
@@ -125,17 +125,17 @@ export const ContentSectionR = ({text, description, imageUrl, min=false, color='
     const isInView = useInView(componentManage, {once: true})
 
     return (
-        <motion.div className={styles.manageStatusContainer} ref={componentManage}>
+        <motion.div className={styles.manageContainer} ref={componentManage}>
             <div 
-                className={styles.manageTextField}
+                className={styles.tetxField}
                 style={{
                     opacity: isInView ? 1 : 0,
                     transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 1s"
                 }}>
-                <p className={styles.manageJoin}>Interested ? Join us...</p>
-                <p className={styles.manageAnd}>... and start saving money today,</p>
-                <p className={styles.manageAnd} >... and start being more aware about your budget,</p>
-                <p className={styles.manageAnd}>... and make your first step to become richer !</p>
+                <h3 className={styles.textField__main}>Interested ? Join us...</h3>
+                <p className={styles.textField__other}>... and start saving money today,</p>
+                <p className={styles.textField__other} >... and start being more aware about your budget,</p>
+                <p className={styles.textField__other}>... and make your first step to become richer !</p>
             </div>
             <div 
                 className={styles.links}
@@ -144,12 +144,12 @@ export const ContentSectionR = ({text, description, imageUrl, min=false, color='
                     transition: "all 0.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                 }}
             >
-                <Link to="/login" className={styles.loginBtn}>
-                    <FaUserCheck />
+                <Link to="/login" className={styles.links__login}>
+                    <p><FaUserCheck /></p>
                     <p>I'm back</p>
                 </Link>
-                <Link to="/register" className={styles.registerBtn}>
-                    <FaUserPlus />
+                <Link to="/register" className={styles.links__register}>
+                    <p><FaUserPlus /></p>
                     <p>I'm new !</p>
                 </Link>
             </div>

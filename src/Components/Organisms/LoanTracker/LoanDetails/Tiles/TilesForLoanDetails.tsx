@@ -185,7 +185,7 @@ export const TileActions = ({...props}:ActionsTileInterface) => {
                 })
                 .then(data => {
                     query.invalidateQueries(["loan", String(loanId)])
-                    query.invalidateQueries(["history"])
+                    query.invalidateQueries(["historyFull"])
                     })
             
             

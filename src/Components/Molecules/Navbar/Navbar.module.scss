@@ -1,47 +1,124 @@
 @import "../../../StylesUtilities/utilities.scss";
 
-.container {
-    position: sticky;
+.navbar {
+    box-sizing: border-box;
+    position: fixed;
     top: 0;
     left: 0;
-    box-sizing: border-box;
+
     width: 100vw;
-    height: 80px;
-    background-color: rgb(255, 255, 255);
+    @include flexSpaceB;
     padding: 10px;
+    font-size: clamp(14px, 12px + 1vw, 24px);
+    height: 40px;
+    background-color: #fff;
 
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
+    z-index: 30;
+    
+    .logo {
+        width: clamp(100px, 50%, 300px);
+        @include flexSpaceB;
 
+        &__image {
+            background-image: url("../../../assets/Logo.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+        }
+
+        &__text {
+            font-weight: 300;
+        }
+    }
+
+
+    .toggle {
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        @include flexCenter;
+        flex-direction: column;
+        gap: 3px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        transition: all 150ms;
+        opacity: .5;
+
+        &__line {
+            width: 20px;
+            height: 3px;
+            border-radius: 8px;
+            background-color: rgb(22, 22, 22);
+
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &:active {
+            transform: scale(.9);
+        }
+    }
 }
 
-.logoField {
-    max-width: 45%;
+.menu {
+
+    position: fixed;
+    padding: 20px 0px;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    min-height: 200px;
     @include flexCenter;
-    gap: 30px;
-}
+    flex-direction: column;
+    gap: 10px;
 
-.logo {
-    background-image: url("../../../assets/Wallet.png");
-    background-size: 100%;
+    font-size: clamp(14px, 12px + 1vw, 20px);
+    background-color: #fff;
+    transition: all 250ms;
 
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    overflow: hidden;
-}
+    a, a:active, a:link, a:visited {
+        position: relative;
+        padding: 5px;
+        color: $dark-main;
+        text-decoration: none;
+        overflow: hidden;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 90%;
+            height: 5px;
+            background-color: $danger-light;
+            opacity: .5;
+            transition: all 250ms cubic-bezier(0.06, 1.71, 0.91, 1.06);
+        }
 
-.companyName {
-    color: $dark-main;
-    font-family: $montserrat;
-    font-weight: 100;
-    font-size: 24px;
-}
+        &:hover::before {
+            left: 5%;
+        }
+    }
 
-.hamburger {
-    color: $dark-main;
-    font-size: 36px;
+    &__hidden {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        transition: 250ms;
+    
+
+
+        a, a:active, a:link, a:visited {
+            opacity: 0;
+        }
+    }
 }
 
 

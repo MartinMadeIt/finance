@@ -48,6 +48,7 @@ function Expenditures() {
 
 
   const {expenditures} = useGetExpenditures({userId: `${userId}`, startDate: start.iso, endDate: end.iso})
+  console.log(expenditures)
   const {total} = useGetTotalExpense({userId: `${userId}`, startDate: start.iso, endDate: end.iso})
   
 

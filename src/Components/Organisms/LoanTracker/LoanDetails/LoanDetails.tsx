@@ -30,7 +30,7 @@ import { BsInfoCircleFill } from "react-icons/bs"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { LoanName, TileActions, TileAmountLeft, TileHistory, TileInfo, TilePercentage }from "./Tiles/TilesForLoanDetails"
 import { ReactNotifications } from "react-notifications-component"
-import { useLoanDetails, useUser } from "./Tiles/tilesHooks"
+// import { useLoanDetails, useUser } from "./Tiles/tilesHooks"
 
 
 
@@ -51,8 +51,8 @@ function LoanDetails() {
     const {loanIndex} = useParams()
 
 
-    const {data:dataLoan} = useQuery(['loan', loanIndex], () => fetchLoanDetails<LoanStatusType>({id:Number(loanIndex)}))
     const {data:dataUser} = useQuery(['user'], () => getUSER())
+    const {data:dataLoan} = useQuery(['loan', loanIndex], () => fetchLoanDetails<LoanStatusType>({id:Number(loanIndex), userId:`${dataUser?.id}`}))
 
     /*           TODO :   rewrite upper functions and export them as useHooks + make history invalidating after submiting new payment                     */
 
@@ -64,6 +64,7 @@ function LoanDetails() {
             <NavbarLogged />
             <ReactNotifications />
 
+            {/* {dataUser?.id === dataLoan?.owner && */}
             <div className={styles.container}>
 
                 <LoanName loanId={Number(loanIndex)}/>

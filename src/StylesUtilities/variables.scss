@@ -11,12 +11,14 @@ cursive; //  400
 $advent: 'Advent Pro',
 sans-serif; //  100
 
+//          SIZES
+$width-landing: clamp(300px, 90%, 1100px);
 
 //          COLORS
 
 //   for bg and main fonts
 $dark-main: #121212;
-$light-main: #fffefc;
+$light-main: #efefef;
 
 
 //   for other elements  in dark mode
